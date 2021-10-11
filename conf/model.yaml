@@ -1,0 +1,30 @@
+# FastSpeech 2
+block_type: fft # fft, lconv
+encoder_layer: 4
+encoder_head: 2
+encoder_hidden: 192
+decoder_layer: 6
+decoder_head: 2
+decoder_hidden: 192
+postnet_kernel_size: 5
+fft_conv1d_filter_size: 1024
+fft_conv1d_kernel_size: [5, 1]
+encoder_dropout: 0.2
+decoder_dropout: 0.2
+
+variance_predictor_filter_size: 256
+variance_predictor_kernel_size: 5
+variance_predictor_dropout: 0.5
+
+# Positional encoding max len
+max_seq_len: 2000
+
+# f0 and energy bins
+n_bins: 256
+
+# Log-scaled duration
+log_offset: 1.0
+
+# Jointly optimized speaker representations
+speaker_emb_size: 192
+speaker_emb_type: linear

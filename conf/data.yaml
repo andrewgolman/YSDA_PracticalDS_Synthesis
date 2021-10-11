@@ -1,0 +1,27 @@
+# Audio and mel
+  sampling_rate: 22050
+  filter_length: 1024
+  hop_length: 256
+  win_length: 1024
+  max_seq_len: 2000
+
+  preemph: 0.0
+  n_mel_channels: 80
+  mel_fmin: 0.0
+  mel_fmax: null
+  highpass_cutoff: 80.0
+
+  representations: null
+  level: 'frame'   # available {'phoneme', 'frame'}
+  log_f0: True
+  log_energy: True
+  normalize_energy: False
+  energy_log_offset: 0.5
+
+  augment_speed: false
+  speed_rates: [0.8, 1.2]
+
+  noise_align: false
+  trim_silence: true
+  text_cleaners: []
+  language: "en"
