@@ -3,6 +3,7 @@ import pyworld as pw
 import audio
 import os
 from pathlib import Path
+from scipy.interpolate import interp1d
 
 
 def extract_f0(wav, max_duration, data_cfg):
@@ -14,6 +15,18 @@ def extract_f0(wav, max_duration, data_cfg):
     )
     f0 = pw.stonemask(wav.astype(np.float64), f0, t, data_cfg.sampling_rate).astype(np.float32)
     f0 = f0[:max_duration]
+
+    nonzero_ids = np.where(f0 != 0)[0]
+    if len(nonzero_ids) > 2:
+        interp_fn = interp1d(
+            nonzero_ids,
+            f0[nonzero_ids],
+            fill_value=(f0[nonzero_ids[0]], f0[nonzero_ids[-1]]),
+            bounds_error=False,
+        )
+        f0 = interp_fn(np.linspace(0, len(f0) - 1, max_duration))
+        f0 = np.log(f0)
+
     if np.sum(f0 != 0) <= 1:
         return None
     return f0
