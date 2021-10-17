@@ -1,5 +1,5 @@
 # FastSpeech 2
-block_type: fft # fft, lconv
+block_type: fft
 encoder_layer: 4
 encoder_head: 2
 encoder_hidden: 192
@@ -24,7 +24,3 @@ n_bins: 256
 
 # Log-scaled duration
 log_offset: 1.0
-
-# Jointly optimized speaker representations
-speaker_emb_size: 192
-speaker_emb_type: linear
