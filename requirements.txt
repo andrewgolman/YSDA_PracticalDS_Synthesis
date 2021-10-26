@@ -1,12 +1,13 @@
 numpy>=1.19.0
-torch>=1.7.0
 scipy>=1.5.4
 pyworld>=0.2.10
 librosa>=0.7.2
 tensorboard>=2.3.0
-gdown
 praatio<5
 auditok
 fuzzysearch
-speechbrain
+speechbrain==0.5.9
 omegaconf
+pydub
+Levenshtein
+unidecode
